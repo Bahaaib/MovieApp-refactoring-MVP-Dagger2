@@ -2,8 +2,6 @@ package com.example.bahaa.movieapp;
 
 import android.content.Context;
 
-import javax.inject.Named;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -22,7 +20,7 @@ public class MovieModule {
     }
 
     @Provides
-    public MovieRepository provideMovieRepository(@Named("application_context") Context context){
+    public MovieRepository provideMovieRepository(Context context){
         return new TMBDRepository(context);
     }
 

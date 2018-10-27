@@ -22,15 +22,17 @@ public class MovieAdapter extends RecyclerView.Adapter {
     private ArrayList<Movie> adapterModel;
 
 
+    private Picasso picasso;
+
     {
         adapterModel = new ArrayList<>();
     }
 
 
-    public MovieAdapter(Context context, ArrayList<Movie> adapterModel) {
+    public MovieAdapter(Context context, ArrayList<Movie> adapterModel, Picasso picasso) {
         this.context = context;
         this.adapterModel = adapterModel;
-
+        this.picasso = picasso;
 
     }
 
@@ -80,8 +82,7 @@ public class MovieAdapter extends RecyclerView.Adapter {
         public void BindView(final int position) {
 
 
-            Picasso.with(context)
-                    .load(APIHelper.IMG_URL + APIHelper.IMG_SIZE + adapterModel.get(position).getMoviePoster())
+            picasso.load(APIHelper.IMG_URL + APIHelper.IMG_SIZE + adapterModel.get(position).getMoviePoster())
                     .fit()
                     .into(moviePoster);
 

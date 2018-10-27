@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.bahaa.movieapp.root.App;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,9 @@ public class MovieActivity extends AppCompatActivity implements MovieMVP.View {
 
     @Inject
     public MovieMVP.Presenter presenter;
+
+    @Inject
+    public Picasso picasso;
 
 
     @Override
@@ -61,7 +65,7 @@ public class MovieActivity extends AppCompatActivity implements MovieMVP.View {
     @Override
     public void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.gameRecyclerView);
-        adapter = new MovieAdapter(this, movies);
+        adapter = new MovieAdapter(this, movies, picasso);
         recyclerView.setAdapter(adapter);
         gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);

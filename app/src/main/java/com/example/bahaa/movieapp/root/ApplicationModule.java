@@ -3,7 +3,6 @@ package com.example.bahaa.movieapp.root;
 import android.app.Application;
 import android.content.Context;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -18,7 +17,6 @@ public class ApplicationModule {
         this.application = application;
     }
 
-    @Named("application_context")
     @Singleton
     @Provides
     public Context provideContext(){
